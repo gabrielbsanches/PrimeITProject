@@ -35,10 +35,6 @@ public class MeetingServiceImpl implements MeetingService {
 		return meetingDAO.findByMeetingId(id);
 	}
 
-	public Meeting findByMeeting(String meetingAny) {
-		return meetingDAO.findByMeeting(meetingAny);
-	}
-
 	public List<Meeting> findAll() {
 		return meetingDAO.findAll();
 	}

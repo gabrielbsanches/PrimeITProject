@@ -33,10 +33,6 @@ public class ClientServiceImpl implements ClientService {
 		return clientDAO.findByClientId(id);
 	}
 
-	public Client findByClientAny(String clientAny) {
-		return clientDAO.findByClientAny(clientAny);
-	}
-
 	public List<Client> findAll() {
 		return clientDAO.findAll();
 	}

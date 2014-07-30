@@ -11,8 +11,7 @@
   <mvc:annotation-driven />
   
 	<mvc:default-servlet-handler />
-	<mvc:resources mapping="/css/**" location="/WEB-INF/css/" />
-	<mvc:resources mapping="/img/**" location="/WEB-INF/img/" />
+	<mvc:resources mapping="/resources/**" location="/resources/theme/" />
  
   <!-- Map simple view name such as "test" into /WEB-INF/test.jsp -->
   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

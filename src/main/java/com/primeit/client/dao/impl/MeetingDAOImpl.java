@@ -48,17 +48,13 @@ public class MeetingDAOImpl implements MeetingDAO{
 		return meeting;
 	}
 
-	/**
-	 * This method will retrieve all meetings ordered by meeting_date(desc) 
-	 * 
-	 */
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Meeting> findAll() {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(Meeting.class);
 		criteria.addOrder(Order.asc("meeting_date"));
 		return criteria.list();
-		
 	}
 
 }

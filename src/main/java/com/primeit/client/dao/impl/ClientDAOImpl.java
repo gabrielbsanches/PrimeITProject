@@ -10,18 +10,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.primeit.client.dao.ClientDAO;
 import com.primeit.client.model.Client;
- 
+
 @Repository
-@SuppressWarnings({"unchecked", "rawtypes"})
-public class ClientDAOImpl implements ClientDAO{
-	
-	 @Autowired private SessionFactory sessionFactory;
- 
-	public void add(Client client){
+@SuppressWarnings({ "unchecked", "rawtypes" })
+public class ClientDAOImpl implements ClientDAO {
+
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	public void add(Client client) {
 		sessionFactory.getCurrentSession().save(client);
 	}
- 
-	public void update(Client client){
+
+	public void update(Client client) {
 		Client clientToUpdate = findByClientId(client.getClient_id());
 		clientToUpdate.setClient_code(client.getClient_code());
 		clientToUpdate.setClient_company_name(client.getClient_company_name());
@@ -32,45 +33,36 @@ public class ClientDAOImpl implements ClientDAO{
 		clientToUpdate.setPhone(client.getPhone());
 		sessionFactory.getCurrentSession().update(clientToUpdate);
 	}
-	
-	public Client findByClientId(long id){
-		Client client = (Client)sessionFactory.getCurrentSession().get(Client.class, id);
-		return client;
-	}
- 
-	public void delete(long id){
+
+	public void delete(long id) {
 		Client client = findByClientId(id);
-		if(client != null){
+		if (client != null) {
 			sessionFactory.getCurrentSession().delete(client);
 		}
 	}
- 
-	public Client findByClientAny(String clientAny){
-		Client client = (Client)sessionFactory.getCurrentSession().get(Client.class, clientAny);
+	
+	public Client findByClientId(long id) {
+		Client client = (Client) sessionFactory.getCurrentSession().get(Client.class, id);
 		return client;
 	}
-	
-	 /**
-	   * @Transactional annotation below will trigger Spring Hibernate transaction manager to automatically create
-	   * a hibernate session. See src/main/webapp/WEB-INF/servlet-context.xml
-	   */
-	  @Transactional
-	  public List<Client> findAll() {
-	    Session session = sessionFactory.getCurrentSession();
-	    List clients = session.createQuery("from Client").list();
-	    return clients;
-	  }
-	  
-	  public List<String> findAllClientCompanyNames(){
-		  String sql = "SELECT c.client_company_name FROM Client c";
-		  List listOfClientCompanyNames = sessionFactory.getCurrentSession().createQuery(sql).list();
-		  return listOfClientCompanyNames;
-	  }
-	  
-	  public List<String> findAllClientNames(){
-		  String sql = "SELECT c.client_name FROM Client c";
-		  List listOfClientCompanyNames = sessionFactory.getCurrentSession().createQuery(sql).list();
-		  return listOfClientCompanyNames;
-	  }
- 
+
+	@Transactional
+	public List<Client> findAll() {
+		Session session = sessionFactory.getCurrentSession();
+		List clients = session.createQuery("from Client").list();
+		return clients;
+	}
+
+	public List<String> findAllClientCompanyNames() {
+		String sql = "SELECT c.client_company_name FROM Client c";
+		List listOfClientCompanyNames = sessionFactory.getCurrentSession().createQuery(sql).list();
+		return listOfClientCompanyNames;
+	}
+
+	public List<String> findAllClientNames() {
+		String sql = "SELECT c.client_name FROM Client c";
+		List listOfClientNames = sessionFactory.getCurrentSession().createQuery(sql).list();
+		return listOfClientNames;
+	}
+
 }

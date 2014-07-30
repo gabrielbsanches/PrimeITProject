@@ -11,7 +11,7 @@ import javax.persistence.Table;
  
 @Entity
 @Table(name = "clients")
-public class Client implements java.io.Serializable {
+public class Client {
  
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

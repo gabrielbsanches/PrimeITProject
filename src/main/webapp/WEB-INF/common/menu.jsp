@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/menuStyle.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/menuStyle.css'/>" />
 </head>
 <body>
 	<ul id="menu">
@@ -29,7 +29,7 @@
 	            <li><a href="${pageContext.request.contextPath}/primeit/meeting/list">List of Meetings</a></li>
 	        </ul>
 	    </li>
-	    <li><a href="#">About</a></li>
+	    <li><a href="${pageContext.request.contextPath}/primeit/extjs/indexExtJS">ExtJS Page</a></li>
 	    <li><a href="#">Contact</a></li>
 	    <li><a href="javascript:formSubmit()"> Logout</a>
 		    <c:url value="/j_spring_security_logout" var="logoutUrl" />

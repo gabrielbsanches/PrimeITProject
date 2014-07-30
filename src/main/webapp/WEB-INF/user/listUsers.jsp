@@ -7,9 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>PrimeIT LIST OF USERS</title>
 	<!-- Menu and style -->
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/menuStyle.css'/>" />
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/tableStyle.css'/>" />
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/menuStyle.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/tableStyle.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/list.css'/>" />
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>  
 	<script src="http://listjs.com/no-cdn/list.js"></script>

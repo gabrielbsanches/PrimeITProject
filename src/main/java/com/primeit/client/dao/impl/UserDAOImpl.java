@@ -12,7 +12,7 @@ import com.primeit.client.model.User;
 /**
  * This class implements the UserDAO
  * 
- * @author Gabriel Sanches
+ * @author gabrielbsanches
  *
  */
 @Repository
@@ -51,11 +51,13 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<User> findAll() {
 		List<User> users = sessionFactory.getCurrentSession().createQuery("from User").list();
 		return users;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<String> findAllManagerNames(){
 		  String sql = "SELECT u.manager_name FROM User u";
 		  List<String> listOfManagerNames = sessionFactory.getCurrentSession().createQuery(sql).list();
